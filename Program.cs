@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         // Declarations
-        string userInput;
+        int userInput;
         int firstNumber = 0;
         int secondNumber = 0;
         int answer = 0;
@@ -22,23 +22,83 @@ class Program
         {
             Console.Clear();
             Random number = new Random();
-            firstNumber = number.Next(1,100);
-            secondNumber = number.Next(1,100);
-            operators = number.Next(1,5);
+            firstNumber = number.Next(1, 100);
+            secondNumber = number.Next(1, 100);
+            operators = number.Next(1, 5);
 
             switch (operators)
             {
                 case 1:
                     answer = firstNumber + secondNumber;
+                    Console.WriteLine(firstNumber + " + " + secondNumber + " = ");
+                    userInput = Convert.ToInt32(Console.ReadLine());
+
+                    if(userInput == answer)
+                    {
+                        Console.WriteLine("Great Job! Press any key for the next question.");
+                        Console.ReadLine();
+                        mathProblems++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Sorry, that's incorrect. Press any key for the next question.");
+                        Console.ReadLine();
+                        mathProblems++;
+                    }
                     break;
                 case 2:
                     answer = firstNumber - secondNumber;
+                    Console.WriteLine(firstNumber + " - " + secondNumber + " = ");
+                    userInput = Convert.ToInt32(Console.ReadLine());
+
+                    if (userInput == answer)
+                    {
+                        Console.WriteLine("Great Job! Press any key for the next question.");
+                        Console.ReadLine();
+                        mathProblems++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Sorry, that's incorrect. Press any key for the next question.");
+                        Console.ReadLine();
+                        mathProblems++;
+                    }
                     break;
                 case 3:
                     answer = firstNumber * secondNumber;
+                    Console.WriteLine(firstNumber + " * " + secondNumber + " = ");
+                    userInput = Convert.ToInt32(Console.ReadLine());
+
+                    if (userInput == answer)
+                    {
+                        Console.WriteLine("Great Job! Press any key for the next question.");
+                        Console.ReadLine();
+                        mathProblems++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Sorry, that's incorrect. Press any key for the next question.");
+                        Console.ReadLine();
+                        mathProblems++;
+                    }
                     break;
                 case 4:
                     answer = firstNumber / secondNumber;
+                    Console.WriteLine(firstNumber + " / " + secondNumber + " = ");
+                    userInput = Convert.ToInt32(Console.ReadLine());
+
+                    if (userInput == answer)
+                    {
+                        Console.WriteLine("Great Job! Press any key for the next question.");
+                        Console.ReadLine();
+                        mathProblems++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Sorry, that's incorrect. Press any key for the next question.");
+                        Console.ReadLine();
+                        mathProblems++;
+                    }
                     break;
                 default:
                     break;
