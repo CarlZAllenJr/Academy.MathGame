@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Threading;
+using System.Threading.Tasks;
+using System.Timers;
 
 class Program
 {
@@ -15,11 +16,15 @@ class Program
         int mathProblems = 0;
         int correctAnswers = 0;
 
+        // Make timer for challenge
+        System.Timers.Timer gameLength = new System.Timers.Timer(1000);
+        gameLength.Elapsed += Timer_Elapsed;
+        gameLength.Start();
+
         // Begin the game
         Console.WriteLine("Let's play a math game!");
         Console.WriteLine("I will provide you with a math equation and you provide the solution.\n");
         Console.WriteLine("When you are ready, press the enter key to continue.");
-        Timer gameTimer = new Timer(TimerCallBack, null, 0, 9999);
         Console.ReadLine();
 
         do
@@ -121,9 +126,14 @@ class Program
         Console.WriteLine("You got " + correctAnswers + " out of " + mathProblems + " correct!");
     }
 
-    // Timer Callback Method
+    private static void Timer_Elapsed(object? sender, ElapsedEventArgs e)
+    {
+        Console.WriteLine(DateTime.Now);
+    }
+
+    /*// Timer Callback Method
     private static void TimerCallBack(object o)
     {
         Console.WriteLine("In TimerCallback: " + DateTime.Now);
-    }
+    }*/
 }
