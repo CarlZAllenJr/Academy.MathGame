@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 class Program
 {
@@ -12,12 +13,13 @@ class Program
         int answer = 0;
         int operators = 0;
         int mathProblems = 0;
-        //int jerry = 0;
+        int correctAnswers = 0;
 
         // Begin the game
         Console.WriteLine("Let's play a math game!");
         Console.WriteLine("I will provide you with a math equation and you provide the solution.\n");
         Console.WriteLine("When you are ready, press the enter key to continue.");
+        Timer gameTimer = new Timer(TimerCallBack, null, 0, 9999);
         Console.ReadLine();
 
         do
@@ -101,6 +103,7 @@ class Program
                         Console.WriteLine("Great Job! Press the enter key for the next question.");
                         Console.ReadLine();
                         mathProblems++;
+                        correctAnswers++;
                     }
                     else
                     {
@@ -114,27 +117,13 @@ class Program
                     break;
             }
         } while (mathProblems != 5);
+
+        Console.WriteLine("You got " + correctAnswers + " out of " + mathProblems + " correct!");
     }
 
-    /*public static int getRandomMultiple(int divisor, int min, int max)
+    // Timer Callback Method
+    private static void TimerCallBack(object o)
     {
-        if (rnd == null)
-        {
-            rnd = new Random();
-        }
-        if(min > max)
-        {
-            int temp = max;
-            max = min;
-            min = temp;
-        }
-
-        int nextRandom = rnd.Next(min, max + 1);
-        
-        while (nextRandom % divisor != 0) 
-        {
-            nextRandom = rnd.Next(min, max + 1);
-        }
-        return nextRandom;
-    }*/
+        Console.WriteLine("In TimerCallback: " + DateTime.Now);
+    }
 }
